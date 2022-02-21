@@ -1,0 +1,15 @@
+{
+  "files.associations": {
+    "iris.script": "objectscript"
+  },
+  "objectscript.conn": {
+    "active": true,
+    "ns": "DJANGOINTEROP",
+    "username": "_SYSTEM",
+    "password": "SYS",
+    "docker-compose": {
+      "service": "iris",
+      "internalPort": 52773
+    }
+  }
+}

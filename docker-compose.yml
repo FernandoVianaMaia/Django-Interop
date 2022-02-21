@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  iris:
+    image: iris
+    build:
+      context: .
+      dockerfile: iris/Dockerfile
+      args:
+        - IRIS_DJANGO_NAMESPACE
+    ports:
+      - "54773:52773"
+    env_file: .env
+    environment:
+      - DJANGO_SETTINGS_MODULE=django_prj.interop.settings
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  django:
+    image: django
+    build:
+      context: ./django-prj
+    ports:
+      - "8000:$DJANGO_PORT"
+    volumes:
+      - ./django-prj:/code
+    env_file: .env
+    entrypoint: ./docker-entrypoint.sh
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: postgres
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/
+      - ./db/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_NAME
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+    restart: always

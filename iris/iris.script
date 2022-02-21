@@ -1,0 +1,19 @@
+    // Unexpire passwords to simplify dev mode. Comment these two lines for Production use
+    zn "%SYS"
+    Do ##class(Security.Users).UnExpireUserPasswords("*")
+
+    // create DjangoInterop namespace
+    do $SYSTEM.OBJ.Load("/opt/irisbuild/DjangoInterop.Installer.cls", "ck") 
+    set sc = ##class(DjangoInterop.Installer).setup() 
+
+    // load and compile all the project artifacts
+    zn $SYSTEM.Util.GetEnviron("IRIS_DJANGO_NAMESPACE")
+    set recurse=1
+    do $SYSTEM.OBJ.LoadDir("/opt/irisbuild/src", "ck", .err, recurse) 
+
+    // Adjust production configs
+    set production = "djangointerop.Production"
+    set ^Ens.Configuration("csp","LastProduction") = production
+    do ##class(Ens.Director).SetAutoStart(production)
+
+    halt
