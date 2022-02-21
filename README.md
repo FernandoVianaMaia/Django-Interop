@@ -16,20 +16,15 @@ docker-compose up -d --build
 ```
 ## Intended requirements
 
-======================  ============================================= 
-Reuirement              Description  
-======================  =============================================
-ORM Django list users   operation to list current users. OK
-Workflow IRIS x Admin   Pending
-Management Command      Config a service in IRIS to run a Django management command at some schedule. Pending
-======================  =============================================
+|Reuqirement            |  Description                                |
+|-----------------------|:-------------------------------------------:|
+|ORM Django list users  | operation to list current users. OK         |
+|Workflow IRIS x Admin  | Pending                                     |
+|Management Command     | Config a service in IRIS to run a Django management command at some schedule. |Pending
 
 ## How to Test it
-==================  ============================================= 
-IRIS Credentials    localhost:  
-==================  =============================================
-User                _SYSTEM
-Password            SYS    
-==================  =============================================
+IRIS Credentials   
+User     _SYSTEM
+Password SYS  
  * Default credential values are available in the `.env` file.
 
