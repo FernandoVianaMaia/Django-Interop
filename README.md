@@ -8,7 +8,7 @@ This docker-compose project is a playful attempt to develop useful tools to inte
 ## Installation 
 Clone/git pull the repo into any local directory
 ```
-git clone https://github.com/<>/<project>.git
+git clone https://github.com/FernandoVianaMaia/Django-Interop.git
 ```
 Run both IRIS container and django container a once with docker compose: 
 ```
