@@ -4,7 +4,7 @@
   },
   "objectscript.conn": {
     "active": true,
-    "ns": "DJANGOINTEROP",
+    "ns": "DJINT",
     "username": "_SYSTEM",
     "password": "SYS",
     "docker-compose": {
