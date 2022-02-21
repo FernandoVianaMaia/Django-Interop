@@ -1,4 +1,4 @@
-# Django-Interop-embeddedPython
+# Django-Interop
 This docker-compose project is a playful attempt to develop useful tools to interoperate Django and InterSystems Iris in a bi-directional way.
 
 ## Prerequisites
@@ -16,11 +16,11 @@ docker-compose up -d --build
 ```
 ## Intended requirements
 
-|Reuqirement            |  Description                                |
+|Requirement            |  Description                                |
 |-----------------------|:-------------------------------------------:|
 |ORM Django list users  | operation to list current users. OK         |
 |Workflow IRIS x Admin  | Pending                                     |
-|Management Command     | Config a service in IRIS to run a Django management command at some schedule. |Pending
+|Management Command     | Pending-Config a service in IRIS to run a Django management command at some schedule. |Pending
 
 ## How to Test it
 IRIS Credentials   
