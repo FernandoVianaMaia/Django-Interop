@@ -28,8 +28,8 @@ docker-compose up
 |Management Command     | *Pending* -Config a service in IRIS to run a Django management command at some schedule. |
 
 ## Credentials   
-IRIS - User **_SYSTEM**, Password **SYS**
-Django Admin - User **django_admin**, Password **12345**
+* IRIS - User **_SYSTEM**, Password **SYS**
+* Django Admin - User **django_admin**, Password **12345**
 * Default credential values are available in the `.env` file.
 
 ## How to Test it
