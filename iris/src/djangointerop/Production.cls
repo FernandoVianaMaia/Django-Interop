@@ -8,6 +8,8 @@ XData ProductionDefinition
   <ActorPoolSize>2</ActorPoolSize>
   <Item Name="get_user_email" Category="django" ClassName="djangointerop.bo.GetUsersOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
   </Item>
+  <Item Name="request_service_approval" Category="django" ClassName="djangointerop.bo.RequestServiceAccessOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+  </Item>
 </Production>
 }
 

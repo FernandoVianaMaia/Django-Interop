@@ -20,7 +20,7 @@ Method OnInit() As %Status
 {
     #dim sc As %Status = $$$OK
     try {
-        do ..PyInit()
+        do ..DjangoInit()
     } catch ex {
         set sc = ex.AsStatus()
     }
@@ -28,7 +28,7 @@ Method OnInit() As %Status
 }
 
 /// Setup Django
-Method PyInit() [ Language = python ]
+Method DjangoInit() [ Language = python ]
 {
     import django
     django.setup(set_prefix=False)

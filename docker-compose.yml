@@ -12,6 +12,7 @@ services:
     env_file: .env
     environment:
       - DJANGO_SETTINGS_MODULE=django_prj.interop.settings
+      - PYTHONPATH=/usr/irissys/mgr/python/django_prj
     depends_on:
       - db
     restart: unless-stopped

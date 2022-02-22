@@ -24,7 +24,7 @@ Method OnInit() As %Status
 {
     #dim sc As %Status = $$$OK
     try {
-        set sc = ##super() ; call PyInit() to initialize django context
+        set sc = ##super()
         if $System.Status.IsError(sc) quit
         do ..ImportUserModel()
     } catch ex {
@@ -36,6 +36,7 @@ Method OnInit() As %Status
 /// Import User Model class at startup
 Method ImportUserModel() [ Language = python ]
 {
+   
     from django.contrib.auth import get_user_model
     self.User =  get_user_model()
 }

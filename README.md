@@ -8,23 +8,35 @@ This docker-compose project is a playful attempt to develop useful tools to inte
 ## Installation 
 Clone/git pull the repo into any local directory
 ```
-git clone https://github.com/FernandoVianaMaia/Django-Interop.git
+git clone https://github.com/FernandoVianaMaia/Django-Interop.git && cd Django-Interop
 ```
-Run both IRIS container and django container a once with docker compose: 
+Build the images with docker compose: 
 ```
-docker-compose up -d --build
+docker-compose build
 ```
+Run the services (IRIS, Django and Postgres): 
+```
+docker-compose up
+```
+
 ## Intended requirements
 
 |Requirement            |  Description                                |
 |-----------------------|:-------------------------------------------:|
-|ORM Django list users  | operation to list current users. OK         |
-|Workflow IRIS x Admin  | Pending                                     |
-|Management Command     | Pending-Config a service in IRIS to run a Django management command at some schedule. |Pending
+|ORM Django list users  | Operation to list current users.         |
+|Workflow IRIS x Admin  | Send a request from IRIS Interoperability to Django, then Send the response from Django to IRIS when the request is approved|
+|Management Command     | *Pending* -Config a service in IRIS to run a Django management command at some schedule. |
+
+## Credentials   
+IRIS - User **_SYSTEM**, Password **SYS**
+Django Admin - User **django_admin**, Password **12345**
+* Default credential values are available in the `.env` file.
 
 ## How to Test it
-IRIS Credentials   
-User     _SYSTEM
-Password SYS  
- * Default credential values are available in the `.env` file.
+
+
+1. Go to Interoperability portal http://localhost:54773/csp/djint/EnsPortal.ProductionConfig.zen, select the `request_service_approval` component and submit a test request.
+* The response will be deferred, so the testing service will timeout. You can confirm the message is in Deferred status http://localhost:54773/csp/djint/EnsPortal.MessageViewer.zen?SOURCEORTARGET=request_service_approval
+2. Open Django Admin http://localhost:8000/admin/service/serviceauthorization/, select the checkbox corresponding to your approval request, then select the action `Approve request - send the response to IRIS` and click go. 
+3. Go back to IRIS interoperability and check the response in the Visual Trace page http://localhost:54773/csp/djint/EnsPortal.MessageViewer.zen?SOURCEORTARGET=request_service_approval
 
